@@ -36,7 +36,7 @@ public class MarchingCubes : MonoBehaviour
 
 		ClearMeshData();
 
-		// Loop through each "cube" in our terrain.
+		// Iterate cube through terrain.
 		for (int x = 0; x < width; x++)
 		{
 			for (int y = 0; y < height; y++)
@@ -57,9 +57,6 @@ public class MarchingCubes : MonoBehaviour
 
 	void PopulateTerrainMap()
 	{
-
-		// The data points for terrain are stored at the corners of our "cubes", so the terrainMap needs to be 1 larger
-		// than the width/height of our mesh.
 		for (int x = 0; x < width + 1; x++)
 		{
 			for (int z = 0; z < width + 1; z++)
@@ -67,7 +64,7 @@ public class MarchingCubes : MonoBehaviour
 				for (int y = 0; y < height + 1; y++)
 				{
 
-					// Get a terrain height using regular old Perlin noise.
+					// Get a terrain height using Perlin noise.
 					float thisHeight = ((float)height/2) + Mathf.PerlinNoise((float)x / 16f * 1.5f + 0.001f, (float)z / 16f * 1.5f + 0.001f) * amplitude;
 
 					// Set the value of this point in the terrainMap.
